@@ -21,5 +21,6 @@ if not IS_TRACING_SDK_ONLY:
             "ParamSchema",
             "ParamSpec",
         ]
-    except ImportError:
-        pass
+    except ModuleNotFoundError as e:
+        if "numpy" not in e.name:
+            raise
